@@ -1,6 +1,6 @@
 # Requirements:
 - oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-- brew: 
+- brew: sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
 
 # To use:
 - Add into .zshrc -> `alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`
