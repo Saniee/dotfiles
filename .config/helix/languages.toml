@@ -1,0 +1,7 @@
+[[language]]
+name = "python"
+language-servers = [ "pyright" ]
+
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
