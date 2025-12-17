@@ -4,12 +4,14 @@
 
 # To use:
 - Clone the oh-my-zsh repo: `git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh/`
-- Clone the dotfiles repo -> `git clone --bare <url> $HOME/dotfiles`
-- Define alias, run in the shell -> `alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`
-- Usually you will need to remove files that already exist. like `.zshrc`. Do so, or make a backup.
+- Remove an existing `.git` directory if exists.
+- Clone the dotfiles repo -> `git clone -n --separate-git-dir .git https://github.com/Saniee/dotfiles throwaway`
+- You can remove the `throwaway` directory.
 - Checkout the repo -> `config checkout`
 
 # Adding to the dotfiles
-- `config add <path-to-file>`
-- `config commit -m "Added <x> file."`
-- `config push` (If being run for the first time, define the upstream.)
+If using lazygit: `git config --local status.showUntrackedFiles no`
+
+- `git add <path-to-file>`
+- `git commit -m "Added <x> file."`
+- `git push` (If being run for the first time, define the upstream.)
