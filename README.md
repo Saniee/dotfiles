@@ -7,7 +7,8 @@
 - Remove an existing `.git` directory if exists.
 - Clone the dotfiles repo -> `git clone -n --separate-git-dir .git https://github.com/Saniee/dotfiles throwaway`
 - You can remove the `throwaway` directory.
-- Checkout the repo -> `config checkout`
+- Checkout the repo -> `git checkout`
+- If you don't care about a backup -> `git checkout -f`
 
 # Adding to the dotfiles
 If using lazygit: `git config --local status.showUntrackedFiles no`
