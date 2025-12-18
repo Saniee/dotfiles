@@ -2,6 +2,11 @@
 - oh-my-zsh: `git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh/`
 - brew: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
+# Disabling the git status:
+- `git config --global --add oh-my-zsh.hide-info 1`
+or
+- `git config --global --add oh-my-zsh.hide-status 1`
+
 # To use:
 - Clone the oh-my-zsh repo: `git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh/`
 - Remove an existing `.git` directory if exists.
