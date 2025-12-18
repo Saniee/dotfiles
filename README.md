@@ -4,7 +4,9 @@
 
 # Disabling the git status:
 - `git config --global --add oh-my-zsh.hide-info 1`
+
 or
+
 - `git config --global --add oh-my-zsh.hide-status 1`
 
 # To use:
