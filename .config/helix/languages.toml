@@ -5,3 +5,7 @@ language-servers = [ "pyright" ]
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
+
+[[language]]
+name = "svelte"
+language-servers = [ "svelteserver", "tailwindcss-ls" ]
