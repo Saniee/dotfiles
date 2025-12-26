@@ -57,7 +57,7 @@ alias cdd='cd /mnt/d'
 alias cdc='cd /mnt/c/Users/asams'
 alias projects='cd /mnt/d/Projects'
 alias pprojects='cd /mnt/d/PersonalProjects'
-alias st='rclone sync -P ./tenebris fs-dav:/saniee/Tenebris'
+alias st='rclone sync ./tenebris fs-dav:/saniee/Tenebris -i'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
