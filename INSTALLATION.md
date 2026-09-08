@@ -37,6 +37,16 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
    source ~/.bashrc
    ```
 
+## Root / multi-user install (Linux)
+
+The steps above only check the dotfiles out into whichever `$HOME` you ran them from — installing as root only sets them up for root, not for other accounts on the box. `install.sh` handles the multi-user case: run it as root and it checks the dotfiles out into `/etc/skel` (so newly-created users inherit them) and into `/root` plus every existing user's home under `/home`, fixing ownership as it goes.
+
+```
+curl -fsSL https://raw.githubusercontent.com/Saniee/dotfiles/master/install.sh | sudo bash
+```
+
+Run it without root (as a regular user, no `sudo`) to just install for yourself — same as the manual steps above.
+
 ## Notes for Windows
 
 - The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace`/`starship` only if they're actually installed, so skipping any of them on Windows is fine — no errors on shell startup.
