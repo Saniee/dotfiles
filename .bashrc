@@ -7,7 +7,7 @@ alias cr='cargo run'
 alias py='python3'
 
 # Bare-repo dotfiles management (keeps `git status`/lazygit clean everywhere else).
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles-git/ --work-tree=$HOME'
+alias dotfiles='git --git-dir=$HOME/.dotfiles-git/ --work-tree=$HOME'
 
 # CD Aliases for QOL.
 # Alacritty Config

@@ -15,7 +15,7 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
    ```
 2. Define the alias for this session (it's already in `.bashrc` for future sessions once checked out):
    ```
-   alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles-git/" --work-tree="$HOME"'
+   alias dotfiles='git --git-dir="$HOME/.dotfiles-git/" --work-tree="$HOME"'
    ```
 3. Hide untracked files in status:
    ```
