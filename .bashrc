@@ -1,5 +1,7 @@
-# Change colors so they aren't fucky on the eyes.
-export LS_COLORS="${LS_COLORS}ow=1;97;45:"
+# ls colors, themed for Ayu Dark.
+if command -v dircolors >/dev/null 2>&1 && [ -f "$HOME/.dircolors" ]; then
+    eval "$(dircolors -b "$HOME/.dircolors")"
+fi
 
 # Aliases for programs.
 alias lg='lazygit'

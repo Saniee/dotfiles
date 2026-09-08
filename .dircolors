@@ -1,0 +1,26 @@
+# LS_COLORS, hand-mapped to the Ayu Dark palette (matches .config/starship.toml).
+# Generated into LS_COLORS by `dircolors` — see .bashrc.
+
+TERM *
+COLORTERM *
+
+RESET 0
+
+DIR 01;38;2;89;194;255
+LINK 38;2;149;230;203
+ORPHAN 38;2;240;113;120
+MISSING 38;2;240;113;120
+EXEC 38;2;194;217;76
+FIFO 38;2;210;166;255
+SOCK 38;2;210;166;255
+DOOR 38;2;210;166;255
+BLK 1;38;2;255;180;84
+CHR 1;38;2;255;180;84
+
+# Dangerous permission bits stay loud (dark text on a colored background),
+# same intent as the old ad-hoc "ow" override this replaces.
+SETUID 38;2;15;20;25;48;2;240;113;120
+SETGID 38;2;15;20;25;48;2;240;113;120
+STICKY 38;2;15;20;25;48;2;89;194;255
+OTHER_WRITABLE 38;2;15;20;25;48;2;255;180;84
+STICKY_OTHER_WRITABLE 38;2;15;20;25;48;2;255;180;84
