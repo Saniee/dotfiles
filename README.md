@@ -1,16 +1,8 @@
 # Requirements:
-- oh-my-zsh: `git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh/`
 - brew: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
-
-# Disabling the git status:
-- `git config --global --add oh-my-zsh.hide-info 1`
-
-or
-
-- `git config --global --add oh-my-zsh.hide-status 1`
+- carapace: https://github.com/carapace-sh/carapace-bin
 
 # To use:
-- Clone the oh-my-zsh repo: `git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh/`
 - Remove an existing `.git` directory if exists.
 - Clone the dotfiles repo -> `git clone -n --separate-git-dir .git https://github.com/Saniee/dotfiles throwaway`
 - You can remove the `throwaway` directory.
