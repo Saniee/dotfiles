@@ -2,7 +2,6 @@
 
 ## Requirements
 - Git — on Windows, install [Git for Windows](https://git-scm.com/download/win), which ships Git Bash
-- Optional: [brew](https://brew.sh) (Linuxbrew) — Linux only, skip on Windows
 - Optional: [carapace](https://github.com/carapace-sh/carapace-bin) — completions, both platforms
 - Optional: [rustup](https://rustup.rs) — only if you want `$HOME/.cargo/env` sourced
 
@@ -39,5 +38,5 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
 
 ## Notes for Windows
 
-- The `.bashrc` here assumes Linuxbrew and a Rust toolchain under `$HOME/.cargo`. If either isn't installed on your Windows box, those two lines just fail silently on shell startup — comment them out in `.bashrc` if that bothers you.
-- Helix and tmux configs under `.config/` are Linux/Unix tools; they won't do anything on a stock Windows + Git Bash setup unless you separately install those tools.
+- The `.bashrc` here assumes a Rust toolchain under `$HOME/.cargo`. If it isn't installed on your Windows box, that line just fails silently on shell startup — comment it out in `.bashrc` if that bothers you.
+- The Helix config under `.config/` is unused these days, but if you do use Helix, install it separately — it isn't managed by this repo's install steps on either platform.

@@ -1,5 +1,4 @@
 # Requirements:
-- brew: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 - carapace: https://github.com/carapace-sh/carapace-bin
 
 # To use:

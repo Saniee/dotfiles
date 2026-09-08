@@ -21,7 +21,6 @@ alias pprojects='cd /mnt/d/PersonalProjects'
 # Other
 alias st='rclone sync /mnt/d/Various/Tenebris fs-dav:/saniee/Tenebris -i'
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 source <(carapace _carapace bash)
