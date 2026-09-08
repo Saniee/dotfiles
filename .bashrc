@@ -1,5 +1,7 @@
-# Change colors so they aren't fucky on the eyes.
-export LS_COLORS="${LS_COLORS}ow=1;97;45:"
+# ls colors, themed for Ayu Dark.
+if command -v dircolors >/dev/null 2>&1 && [ -f "$HOME/.dircolors" ]; then
+    eval "$(dircolors -b "$HOME/.dircolors")"
+fi
 
 # Aliases for programs.
 alias lg='lazygit'
@@ -14,4 +16,9 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles-git/ --work-tree=$HOME'
 if command -v carapace >/dev/null 2>&1; then
     export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
     source <(carapace _carapace bash)
+fi
+
+if command -v starship >/dev/null 2>&1; then
+    export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+    eval "$(starship init bash)"
 fi
