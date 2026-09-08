@@ -15,3 +15,8 @@ if command -v carapace >/dev/null 2>&1; then
     export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
     source <(carapace _carapace bash)
 fi
+
+if command -v starship >/dev/null 2>&1; then
+    export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+    eval "$(starship init bash)"
+fi

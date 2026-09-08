@@ -1,5 +1,6 @@
 # Requirements:
 - carapace: https://github.com/carapace-sh/carapace-bin
+- starship (prompt theming, Ayu Dark): https://starship.rs
 
 # To use:
 See [INSTALLATION.md](INSTALLATION.md) for Linux and Windows (Git Bash) setup steps.

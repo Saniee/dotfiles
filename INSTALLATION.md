@@ -3,6 +3,7 @@
 ## Requirements
 - Git — on Windows, install [Git for Windows](https://git-scm.com/download/win), which ships Git Bash
 - Optional: [carapace](https://github.com/carapace-sh/carapace-bin) — completions, both platforms
+- Optional: [starship](https://starship.rs) — prompt theming (Ayu Dark colors, config at `.config/starship.toml`), both platforms
 - Optional: [rustup](https://rustup.rs) — only if you want `$HOME/.cargo/env` sourced
 
 This repo is managed as a bare git repo checked out against `$HOME` and accessed through a `dotfiles` alias, so plain `git`/lazygit run elsewhere won't pick it up. Same steps on both platforms — just run them from Git Bash on Windows.
@@ -38,5 +39,5 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
 
 ## Notes for Windows
 
-- The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace` completions only if they're actually installed, so skipping either on Windows is fine — no errors on shell startup.
+- The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace`/`starship` only if they're actually installed, so skipping any of them on Windows is fine — no errors on shell startup.
 - The Helix config under `.config/` is unused these days, but if you do use Helix, install it separately — it isn't managed by this repo's install steps on either platform.
