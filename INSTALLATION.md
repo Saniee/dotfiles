@@ -54,7 +54,7 @@ Pass an action as an extra argument (`bash -s -- <action>` when piping from curl
 - `reset` — discard local edits to tracked files, restoring the last checked-out state; leaves the git-dir alone
 - `uninstall` — remove the bare git-dir and the `dotfiles` alias from `.bashrc`; tracked files stay on disk as plain files. Add `--purge` to also delete them (the script itself is kept)
 
-On Windows, `install` and `reset` also copy `.config/helix/config.toml` to `%APPDATA%\helix\config.toml` (Helix's actual config location there) if it's present, so Helix picks it up without a manual copy. This part is written for and tested against Git Bash's behavior, but not verified on an actual Windows machine — if it doesn't land correctly, that's worth reporting.
+On Windows, `install` also copies `.config/helix/config.toml` to `%APPDATA%\helix\config.toml` (Helix's actual config location there) if it's present, so Helix picks it up without a manual copy, and installs `post-checkout`/`post-merge` git hooks that redo this copy automatically — so a later plain `dotfiles pull` or `dotfiles checkout` keeps it in sync too, not just re-running `install.sh`. This part is written for and tested against Git Bash's behavior, but not verified on an actual Windows machine — if it doesn't land correctly, that's worth reporting.
 
 ```
 curl -fsSL https://raw.githubusercontent.com/Saniee/dotfiles/master/install.sh | sudo bash -s -- uninstall --purge

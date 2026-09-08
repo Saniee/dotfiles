@@ -54,6 +54,7 @@ install_home() {
         chown -R "$owner" "$git_dir"
     fi
 
+    install_hooks "$git_dir"
     sync_helix_windows "$home"
 }
 
@@ -68,6 +69,26 @@ sync_helix_windows() {
     [ -n "${APPDATA:-}" ] && [ -f "$home/.config/helix/config.toml" ] || return 0
     mkdir -p "$APPDATA/helix"
     cp "$home/.config/helix/config.toml" "$APPDATA/helix/config.toml"
+}
+
+# A plain `dotfiles pull`/`checkout` doesn't go through this script, so the
+# Windows Helix mirror above would silently go stale after one. These hooks
+# make git re-run that sync itself on every future checkout/merge.
+install_hooks() {
+    local git_dir="$1" hook
+    for hook in post-checkout post-merge; do
+        cat > "$git_dir/hooks/$hook" <<'HOOK'
+#!/usr/bin/env bash
+case "${OSTYPE:-}" in
+    msys*|cygwin*) ;;
+    *) exit 0 ;;
+esac
+[ -n "${APPDATA:-}" ] && [ -f "$HOME/.config/helix/config.toml" ] || exit 0
+mkdir -p "$APPDATA/helix"
+cp "$HOME/.config/helix/config.toml" "$APPDATA/helix/config.toml"
+HOOK
+        chmod +x "$git_dir/hooks/$hook"
+    done
 }
 
 reset_home() {
