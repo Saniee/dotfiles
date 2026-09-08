@@ -53,6 +53,21 @@ install_home() {
     if [ -n "$owner" ]; then
         chown -R "$owner" "$git_dir"
     fi
+
+    sync_helix_windows "$home"
+}
+
+# Helix reads config from %APPDATA%\helix on Windows, not .config/helix/ -
+# mirror it over when running under Git Bash. No-ops anywhere else.
+sync_helix_windows() {
+    local home="$1"
+    case "${OSTYPE:-}" in
+        msys*|cygwin*) ;;
+        *) return 0 ;;
+    esac
+    [ -n "${APPDATA:-}" ] && [ -f "$home/.config/helix/config.toml" ] || return 0
+    mkdir -p "$APPDATA/helix"
+    cp "$home/.config/helix/config.toml" "$APPDATA/helix/config.toml"
 }
 
 reset_home() {
@@ -62,6 +77,7 @@ reset_home() {
         return
     fi
     git "--git-dir=$git_dir" "--work-tree=$home" checkout -f
+    sync_helix_windows "$home"
 }
 
 uninstall_home() {

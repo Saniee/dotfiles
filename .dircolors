@@ -1,8 +1,11 @@
 # LS_COLORS, hand-mapped to the Ayu Dark palette (matches .config/starship.toml).
 # Generated into LS_COLORS by `dircolors` — see .bashrc.
-
-TERM *
-COLORTERM *
+#
+# No TERM/COLORTERM filter lines on purpose: with none present, dircolors
+# applies these unconditionally instead of restricting by $TERM, which
+# sidesteps version differences in which filter keywords a given
+# dircolors build recognizes (e.g. Git for Windows' bundled one rejects
+# COLORTERM).
 
 RESET 0
 
