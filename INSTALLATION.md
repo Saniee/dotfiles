@@ -37,17 +37,29 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
    source ~/.bashrc
    ```
 
-## Root / multi-user install (Linux)
+Note: `.md` files (this one included) are tracked in the repo but marked `skip-worktree` and removed from `$HOME` right after checkout — they're worth keeping in git, not worth cluttering your home directory with. `git log`/GitHub still show them normally.
 
-The steps above only check the dotfiles out into whichever `$HOME` you ran them from — installing as root only sets them up for root, not for other accounts on the box. `install.sh` handles the multi-user case: run it as root and it checks the dotfiles out into `/etc/skel` (so newly-created users inherit them) and into `/root` plus every existing user's home under `/home`, fixing ownership as it goes.
+## Using install.sh
+
+`install.sh` wraps the steps above and adds a couple of things the manual flow can't do: multi-user installs, a reset, and an uninstall.
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Saniee/dotfiles/master/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Saniee/dotfiles/master/install.sh | bash
 ```
 
-Run it without root (as a regular user, no `sudo`) to just install for yourself — same as the manual steps above.
+Run as a regular user, this installs for just your account (same result as the manual steps, `.md` exclusion included). Run as root (`| sudo bash`), it also seeds `/etc/skel` (so newly-created users inherit the dotfiles) and applies the install to `/root` plus every existing home under `/home`, fixing ownership as it goes.
+
+Pass an action as an extra argument (`bash -s -- <action>` when piping from curl):
+- `install` (default) — clone if missing, check out, back up anything conflicting
+- `reset` — discard local edits to tracked files, restoring the last checked-out state; leaves the git-dir alone
+- `uninstall` — remove the bare git-dir and the `dotfiles` alias from `.bashrc`; tracked files stay on disk as plain files. Add `--purge` to also delete them (the script itself is kept)
+
+```
+curl -fsSL https://raw.githubusercontent.com/Saniee/dotfiles/master/install.sh | sudo bash -s -- uninstall --purge
+```
 
 ## Notes for Windows
 
-- The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace`/`starship` only if they're actually installed, so skipping any of them on Windows is fine — no errors on shell startup.
+- The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace`/`starship`/`dircolors` only if they're actually installed, so skipping any of them on Windows is fine — no errors on shell startup.
+- Git Bash starts a login shell, which reads `.bash_profile` instead of `.bashrc` — this repo's `.bash_profile` just sources `.bashrc`, so it still works the same way as on Linux.
 - The Helix config under `.config/` is unused these days, but if you do use Helix, install it separately — it isn't managed by this repo's install steps on either platform.
