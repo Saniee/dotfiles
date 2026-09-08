@@ -38,5 +38,5 @@ This repo is managed as a bare git repo checked out against `$HOME` and accessed
 
 ## Notes for Windows
 
-- The `.bashrc` here assumes a Rust toolchain under `$HOME/.cargo`. If it isn't installed on your Windows box, that line just fails silently on shell startup — comment it out in `.bashrc` if that bothers you.
+- The `.bashrc` here sources `$HOME/.cargo/env` and sets up `carapace` completions only if they're actually installed, so skipping either on Windows is fine — no errors on shell startup.
 - The Helix config under `.config/` is unused these days, but if you do use Helix, install it separately — it isn't managed by this repo's install steps on either platform.
